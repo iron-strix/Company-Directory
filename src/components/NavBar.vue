@@ -26,17 +26,17 @@
 
       .brand {
         &-title {
-          @apply text-2xl font-bold text-white;
+          @apply text-2xl font-bold text-amber-600;
         }
       }
 
       .menu {
         @apply flex gap-2;
         &-item {
-          @apply rounded-md px-4 py-2 hover:bg-rose-300 hover:text-slate-900;
+          @apply rounded-md px-4 py-2 hover:bg-amber-500 hover:text-slate-900;
         }
         &-login {
-          @apply rounded-md bg-rose-600 px-4 py-2 hover:bg-red-400 hover:text-slate-900;
+          @apply rounded-md bg-red-600 px-4 py-2 hover:bg-amber-500 hover:text-slate-900;
         }
       }
     }
