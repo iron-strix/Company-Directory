@@ -14,27 +14,38 @@
       <p class="card-text-name">{{ fullName }}</p>
       <p class="card-text-email">{{ faker.internet.exampleEmail(fullName) }}</p>
       <p class="card-text-dept">
-        {{ faker.commerce.department() }}<br />
-        {{ faker.name.jobTitle() }}
+        {{ faker.commerce.department() }}
       </p>
-      <p class="card-text-title"></p>
+      <p class="card-text-title">{{ faker.name.jobTitle() }}</p>
     </div>
   </div>
 </template>
 
 <style scoped lang="postcss">
   .card {
-    @apply rounded-md bg-slate-200 p-4 shadow-md transition duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zinc-900;
+    @apply rounded-md bg-zinc-500 p-4 shadow-md transition duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zinc-900;
     img {
-      @apply m-2 mx-auto rounded-full ring-4 ring-red-900;
+      @apply m-2 mx-auto rounded-full object-contain shadow-lg shadow-zinc-600 ring-4 ring-red-800;
     }
   }
 
   .card-text {
-    @apply text-center;
+    @apply flex flex-col pt-2 text-center font-sans;
 
     &-name {
-      @apply font-bold;
+      @apply font-serif text-2xl font-bold text-red-800;
+    }
+
+    &-email {
+      @apply text-sm text-zinc-300;
+    }
+
+    &-dept {
+      @apply pt-4 text-lg font-bold text-amber-600;
+    }
+
+    &-title {
+      @apply text-sm italic text-zinc-300;
     }
   }
 </style>
