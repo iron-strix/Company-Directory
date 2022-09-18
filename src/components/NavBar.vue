@@ -32,7 +32,7 @@
         }
 
         &-slogan {
-          @apply flex justify-center text-center font-sans text-sm italic text-zinc-300;
+          @apply flex justify-end text-center font-sans text-sm italic text-zinc-300;
         }
       }
 
