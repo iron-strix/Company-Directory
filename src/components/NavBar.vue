@@ -1,5 +1,6 @@
 <script setup>
   import { ref } from 'vue'
+  import { faker } from '@faker-js/faker'
   const brand = ref('🏦 Fake Company Directory')
 </script>
 <template>
@@ -7,6 +8,7 @@
     <div class="wrapper">
       <div class="brand">
         <span class="brand-title">{{ brand }}</span>
+        <span class="brand-slogan">{{ faker.company.bsAdjective() }}</span>
       </div>
       <div class="menu">
         <a href="#" class="menu-item">Departments</a>
@@ -27,6 +29,10 @@
       .brand {
         &-title {
           @apply font-serif text-3xl font-bold text-amber-500;
+        }
+
+        &-slogan {
+          @apply flex justify-center text-center font-sans text-sm italic text-zinc-300;
         }
       }
 
