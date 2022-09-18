@@ -25,7 +25,7 @@
   .card {
     @apply rounded-md bg-zinc-500 p-4 shadow-md transition duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zinc-900;
     img {
-      @apply m-2 mx-auto rounded-full object-contain shadow-lg shadow-zinc-600 ring-4 ring-red-800;
+      @apply m-2 mx-auto rounded-full object-contain shadow-lg shadow-zinc-600 ring-4 ring-zinc-400;
     }
   }
 
@@ -33,15 +33,15 @@
     @apply flex flex-col pt-2 text-center font-sans;
 
     &-name {
-      @apply font-serif text-2xl font-bold text-red-800;
+      @apply font-serif text-3xl font-bold text-amber-500;
     }
 
     &-email {
-      @apply text-sm text-zinc-300;
+      @apply text-sm text-zinc-400;
     }
 
     &-dept {
-      @apply pt-4 text-lg font-bold text-amber-600;
+      @apply pt-4 font-serif text-lg font-bold text-amber-500;
     }
 
     &-title {

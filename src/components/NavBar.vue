@@ -26,7 +26,7 @@
 
       .brand {
         &-title {
-          @apply font-serif text-2xl font-bold text-amber-600;
+          @apply font-serif text-3xl font-bold text-amber-500;
         }
       }
 
