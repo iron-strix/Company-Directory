@@ -23,7 +23,7 @@
 
 <style scoped lang="postcss">
   .card {
-    @apply rounded-md bg-zinc-500 p-4 shadow-md transition duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zinc-900;
+    @apply rounded-md bg-zinc-500 p-4 shadow-md transition duration-300 hover:scale-105 hover:bg-zinc-600 hover:shadow-2xl hover:shadow-zinc-900;
     img {
       @apply m-2 mx-auto rounded-full object-contain shadow-lg shadow-zinc-600 ring-4 ring-zinc-400;
     }
