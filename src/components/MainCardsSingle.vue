@@ -37,7 +37,7 @@
     }
 
     &-email {
-      @apply text-sm text-zinc-400;
+      @apply font-sans text-sm text-zinc-400;
     }
 
     &-dept {
@@ -45,7 +45,7 @@
     }
 
     &-title {
-      @apply text-sm italic text-zinc-300;
+      @apply font-sans text-sm italic text-zinc-300;
     }
   }
 </style>
