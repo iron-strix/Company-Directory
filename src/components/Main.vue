@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-  import MainSearch from './MainSearch.vue'
-  import MainCards from './MainCards.vue'
-  import MainPagination from './MainPagination.vue'
+  import MainSearch from '@/components/MainSearch.vue'
+  import MainCards from '@/components/MainCards.vue'
+  import MainPagination from '@/components/MainPagination.vue'
 </script>
 <template>
   <div class="wrapper">

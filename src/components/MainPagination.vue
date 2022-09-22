@@ -20,8 +20,13 @@
 <template>
   <div class="pagination">
     <button class="action" :disabled="activePage === 1" @click="prevPage">Prev</button>
-    // eslint-disable-next-line vue/require-v-for-key
-    <button v-for="page in pages" class="page" :class="page === activePage ? 'active' : ''" @click="activePage = page">
+    <button
+      v-for="page in pages"
+      :key="page"
+      class="page"
+      :class="page === activePage ? 'active' : ''"
+      @click="activePage = page"
+    >
       {{ page }}
     </button>
     <button class="action" :disabled="activePage === pages" @click="nextPage">Next</button>
