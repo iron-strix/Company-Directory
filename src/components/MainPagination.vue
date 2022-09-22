@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/script-indent -->
 <script setup>
   import { ref } from 'vue'
   const pages = ref(10)
@@ -18,11 +19,12 @@
 
 <template>
   <div class="pagination">
-    <button class="action" :disabled="activePage === 1" @click="prevPage"></button>
+    <button class="action" :disabled="activePage === 1" @click="prevPage">Prev</button>
+    // eslint-disable-next-line vue/require-v-for-key
     <button v-for="page in pages" class="page" :class="page === activePage ? 'active' : ''" @click="activePage = page">
       {{ page }}
     </button>
-    <button class="action" :disabled="activePage === pages" @click="nextPage"></button>
+    <button class="action" :disabled="activePage === pages" @click="nextPage">Next</button>
   </div>
 </template>
 
@@ -30,7 +32,7 @@
   .pagination {
     @apply flex justify-center gap-2;
     .action {
-      @apply rounded-md bg-zinc-400 p-2 font-medium text-zinc-700 shadow-md hover:bg-zinc-200 disabled:text-slate-400 hover:disabled:bg-zinc-700;
+      @apply rounded-md bg-zinc-400 p-2 font-medium text-zinc-700 shadow-md hover:bg-zinc-200 disabled:bg-zinc-700 disabled:text-slate-200 hover:disabled:bg-zinc-900 hover:disabled:text-slate-500;
     }
     .page {
       @apply rounded-md bg-zinc-400 p-2 font-medium text-zinc-700 shadow-md hover:bg-zinc-200;
