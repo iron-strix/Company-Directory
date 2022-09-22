@@ -6,10 +6,10 @@
 <template>
   <nav class="bg-red-500">
     <div class="wrapper">
-      <div class="brand">
+      <RouterLink :to="{ name: 'home' }" class="brand">
         <span class="brand-title">{{ brand }}</span>
         <span class="brand-slogan">{{ faker.company.bsAdjective() }}</span>
-      </div>
+      </RouterLink>
       <div class="menu">
         <a href="#" class="menu-item">Departments</a>
         <a href="#" class="menu-item">Settings</a>
