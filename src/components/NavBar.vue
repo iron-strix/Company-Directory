@@ -23,7 +23,7 @@
           </p>
         </div>
         <div>
-          <RouterLink :to="{ name: 'home' }" href="#" class="menu-item">Departments</RouterLink>
+          <RouterLink :to="{ name: 'departments' }" href="#" class="menu-item">Departments</RouterLink>
         </div>
         <div v-if="isAuthenticated">
           <RouterLink :to="{ name: 'settings' }" href="#" class="menu-item">Settings</RouterLink>
