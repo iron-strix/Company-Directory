@@ -1,6 +1,10 @@
 <script setup>
   import { ref } from 'vue'
   import { faker } from '@faker-js/faker'
+  import { useAuth } from '@/composables/useAuth'
+
+  const { isAuthenticated, logout } = useAuth()
+
   const brand = ref('🏦 Fake Company Directory')
 </script>
 <template>
@@ -10,10 +14,18 @@
         <span class="brand-title">{{ brand }}</span>
         <span class="brand-slogan">{{ faker.company.bsAdjective() }}</span>
       </RouterLink>
+
       <div class="menu">
-        <a href="#" class="menu-item">Departments</a>
-        <a href="#" class="menu-item">Settings</a>
-        <a href="#" class="menu-login">Logout</a>
+        <div>
+          <RouterLink :to="{ name: 'home' }" href="#" class="menu-item">Departments</RouterLink>
+        </div>
+        <div v-if="isAuthenticated">
+          <RouterLink :to="{ name: 'home' }" href="#" class="menu-item">Settings</RouterLink>
+          <RouterLink :to="{ name: 'home' }" href="#" class="menu-logout" @click="logout()">Logout</RouterLink>
+        </div>
+        <div v-else>
+          <RouterLink :to="{ name: 'login' }" href="#" class="menu-login">Login</RouterLink>
+        </div>
       </div>
     </div>
   </nav>
@@ -37,11 +49,19 @@
       }
 
       .menu {
-        @apply flex gap-2 font-sans;
+        @apply flex font-sans;
+
+        div {
+        }
+
         &-item {
-          @apply rounded-md px-4 py-2 hover:bg-amber-500 hover:text-slate-900;
+          @apply mx-2 rounded-md px-4 py-2 hover:bg-amber-500 hover:text-slate-900;
         }
         &-login {
+          @apply rounded-md bg-green-600 px-4 py-2 hover:bg-green-400 hover:text-slate-900;
+        }
+
+        &-logout {
           @apply rounded-md bg-rose-600 px-4 py-2 hover:bg-amber-500 hover:text-slate-900;
         }
       }
