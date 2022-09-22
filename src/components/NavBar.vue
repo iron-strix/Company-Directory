@@ -3,7 +3,7 @@
   import { faker } from '@faker-js/faker'
   import { useAuth } from '@/composables/useAuth'
 
-  const { isAuthenticated, logout } = useAuth()
+  const { isAuthenticated, logout, user } = useAuth()
 
   const brand = ref('🏦 Fake Company Directory')
 </script>
@@ -16,11 +16,17 @@
       </RouterLink>
 
       <div class="menu">
+        <div v-if="isAuthenticated">
+          <p class="font-serif text-rose-500">
+            Welcome, <strong>{{ user.name }}</strong
+            >.
+          </p>
+        </div>
         <div>
           <RouterLink :to="{ name: 'home' }" href="#" class="menu-item">Departments</RouterLink>
         </div>
         <div v-if="isAuthenticated">
-          <RouterLink :to="{ name: 'home' }" href="#" class="menu-item">Settings</RouterLink>
+          <RouterLink :to="{ name: 'settings' }" href="#" class="menu-item">Settings</RouterLink>
           <RouterLink :to="{ name: 'home' }" href="#" class="menu-logout" @click="logout()">Logout</RouterLink>
         </div>
         <div v-else>
