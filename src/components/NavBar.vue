@@ -5,7 +5,7 @@
 
   const { isAuthenticated, logout, user } = useAuth()
 
-  const brand = ref('🏦 Fake Company Directory')
+  const brand = ref(import.meta.env.VITE_APP_NAME)
 </script>
 <template>
   <nav class="bg-red-500">
