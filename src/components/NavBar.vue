@@ -18,7 +18,7 @@
       <div class="menu">
         <div v-if="isAuthenticated">
           <p class="font-serif text-rose-500">
-            Welcome, <strong>{{ user.name }}</strong
+            Welcome, <strong>{{ user?.email }}</strong
             >.
           </p>
         </div>
