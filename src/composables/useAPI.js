@@ -8,7 +8,7 @@ const activePage = ref(1)
 const pageSize = ref(8)
 
 const api = axios.create({
-  baseURL: import.meta.evn.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   auth: {
     username: import.meta.env.VITE_API_USERNAME,
     password: import.meta.env.VITE_API_PASSWORD,
@@ -17,7 +17,7 @@ const api = axios.create({
 
 const getEmployees = async () => {
   loading.value = true
-  const { data, headers } = await api.get('/api/employees', {
+  const { data, headers } = await api.get('/employees', {
     params: {
       page: activePage.value,
       size: pageSize.value,
@@ -29,7 +29,7 @@ const getEmployees = async () => {
 }
 
 const getDepartment = async (departmentId) => {
-  const { data } = await api.get(`/api/departments/${departmentId}`)
+  const { data } = await api.get(`/departments/${departmentId}`)
   return data
 }
 
