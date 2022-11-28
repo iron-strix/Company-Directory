@@ -39,12 +39,12 @@
 
 <template>
   <div class="card" @click="selectCard">
-    <img :src="faker.internet.avatar()" :alt="props.employee.name" srcset="" />
+    <img v-if="!show" :src="faker.internet.avatar()" :alt="props.employee.name" srcset="" />
     <div class="card-text" @mouseover="show = true" @mouseleave="show = false">
       <p class="card-text-name">{{ props.employee.name }}</p>
       <p class="card-text-email">{{ props.employee.email }}</p>
-      <p v-if="!show" class="card-text-title">...</p>
-      <p v-if="show" class="card-text-title">"{{ props.employee.quote }}"</p>
+      <p v-show="!show" class="card-text-title">...</p>
+      <p v-show="show" class="card-text-title">"{{ props.employee.quote }}"</p>
       <p class="card-text-dept">
         {{ department.name }}
       </p>
