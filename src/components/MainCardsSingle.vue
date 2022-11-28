@@ -1,22 +1,54 @@
 <script setup>
+  import { ref } from 'vue'
+
+  import useAPI from '@/composables/useAPI'
+
   import { faker } from '@faker-js/faker'
-  const fullName = faker.name.fullName()
+
+  const { getDepartment } = useAPI()
+
+  //const fullName = faker.name.fullName()
 
   const selectCard = () => {
-    console.log(`${fullName} selected`)
+    console.log(`${props.employee.name} selected`)
   }
+
+  const props = defineProps({
+    employee: {
+      type: Object,
+      required: true,
+      default: () => {
+        return {
+          createdAt: '2022-01-01',
+          departmentId: '123',
+          email: 'John_doe@example.com',
+          employeeId: '123',
+          name: 'John Doe',
+          quote: 'Quote here.',
+          title: 'Postion at company here',
+          updatedAt: '2022-01-01',
+        }
+      },
+    },
+  })
+
+  const departmentResponse = await getDepartment(props.employee.departmentId)
+  const department = ref(departmentResponse)
+  const show = ref(false)
 </script>
 
 <template>
   <div class="card" @click="selectCard">
-    <img :src="faker.internet.avatar()" :alt="fullName" srcset="" />
-    <div class="card-text">
-      <p class="card-text-name">{{ fullName }}</p>
-      <p class="card-text-email">{{ faker.internet.exampleEmail(fullName) }}</p>
+    <img :src="faker.internet.avatar()" :alt="props.employee.name" srcset="" />
+    <div class="card-text" @mouseover="show = true" @mouseleave="show = false">
+      <p class="card-text-name">{{ props.employee.name }}</p>
+      <p class="card-text-email">{{ props.employee.email }}</p>
+      <p v-if="!show" class="card-text-title">...</p>
+      <p v-if="show" class="card-text-title">"{{ props.employee.quote }}"</p>
       <p class="card-text-dept">
-        {{ faker.commerce.department() }}
+        {{ department.name }}
       </p>
-      <p class="card-text-title">{{ faker.name.jobTitle() }}</p>
+      <p class="card-text-title">{{ props.employee.title }}</p>
     </div>
   </div>
 </template>
